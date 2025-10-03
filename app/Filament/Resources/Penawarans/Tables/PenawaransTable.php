@@ -23,7 +23,8 @@ class PenawaransTable
                     ->searchable(),
                 ImageColumn::make('foto')
                     ->square()
-                    ->size(60),
+                    ->size(60)
+                    ->disk('public'),
                 TextColumn::make('jumlah_kebutuhan')
                     ->numeric()
                     ->sortable(),

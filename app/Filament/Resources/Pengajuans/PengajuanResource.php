@@ -17,10 +17,25 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class PengajuanResource extends Resource
+
 {
+    protected static ?string $navigationLabel = 'Pengajuan';
+
     protected static ?string $model = Pengajuan::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+
+    // ⬇️ ini untuk label tunggal
+    public static function getLabel(): string
+    {
+        return 'Pengajuan';
+    }
+
+    // ⬇️ ini untuk label jamak (judul tabel & list)
+    public static function getPluralLabel(): string
+    {
+        return 'Daftar Pengajuan';
+    }
 
     public static function form(Schema $schema): Schema
     {

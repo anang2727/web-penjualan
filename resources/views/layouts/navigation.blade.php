@@ -18,9 +18,17 @@
 
                     {{-- Menu khusus role petani --}}
                     @if(auth()->check() && auth()->user()->role === 'petani')
-                        <x-nav-link :href="route('hasil.index')" :active="request()->routeIs('hasil.*')">
-                            {{ __('Hasil Pertanian') }}
-                        </x-nav-link>
+                    <!-- <x-nav-link :href="route('hasil.index')" :active="request()->routeIs('hasil.*')">
+                        {{ __('Hasil Pertanian') }}
+                    </x-nav-link> -->
+
+                    <x-nav-link :href="route('petani.penawaran.index')" :active="request()->routeIs('petani.penawaran.*')">
+                        {{ __('Penawaran') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('pengajuan.index')" :active="request()->routeIs('pengajuan.*')">
+                        {{ __('Pengajuan Saya') }}
+                    </x-nav-link>
                     @endif
                 </div>
             </div>
@@ -50,7 +58,7 @@
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
+                                onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
@@ -80,9 +88,17 @@
 
             {{-- Menu khusus role petani (mobile) --}}
             @if(auth()->check() && auth()->user()->role === 'petani')
-                <x-responsive-nav-link :href="route('hasil.index')" :active="request()->routeIs('hasil.*')">
-                    {{ __('Hasil Pertanian') }}
-                </x-responsive-nav-link>
+            <!-- <x-responsive-nav-link :href="route('hasil.index')" :active="request()->routeIs('hasil.*')">
+                {{ __('Hasil Pertanian') }}
+            </x-responsive-nav-link> -->
+
+            <x-responsive-nav-link :href="route('petani.penawaran.index')" :active="request()->routeIs('petani.penawaran.*')">
+                {{ __('Penawaran') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('pengajuan.index')" :active="request()->routeIs('pengajuan.*')">
+                {{ __('Pengajuan Saya') }}
+            </x-responsive-nav-link>
             @endif
         </div>
 
@@ -103,7 +119,7 @@
                     @csrf
 
                     <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                        onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>

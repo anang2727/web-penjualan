@@ -18,9 +18,23 @@ use Filament\Tables\Table;
 
 class PenawaranResource extends Resource
 {
+    protected static ?string $navigationLabel = 'Penawaran';
     protected static ?string $model = Penawaran::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+
+    // ⬇️ ini untuk label tunggal
+    public static function getLabel(): string
+    {
+        return 'Penawaran';
+    }
+
+    // ⬇️ ini untuk label jamak (judul tabel & list)
+    public static function getPluralLabel(): string
+    {
+        return 'Daftar Penawaran';
+    }
+
 
     public static function form(Schema $schema): Schema
     {

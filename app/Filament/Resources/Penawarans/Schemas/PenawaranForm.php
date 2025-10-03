@@ -23,9 +23,11 @@ class PenawaranForm
                 FileUpload::make('foto')
                     ->image() // biar khusus gambar
                     ->directory('penawarans') // folder penyimpanan di storage/app/public/penawarans
+                    ->disk('public') // ⬅️ WAJIB, biar masuk ke storage/app/public
                     ->visibility('public') // biar bisa diakses publik
                     ->maxSize(2048) // maksimal 2MB
                     ->nullable(),
+
                 Textarea::make('deskripsi')
                     ->columnSpanFull(),
                 TextInput::make('jumlah_kebutuhan')

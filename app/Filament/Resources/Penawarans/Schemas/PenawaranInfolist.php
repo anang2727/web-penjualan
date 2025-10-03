@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Penawarans\Schemas;
 
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
@@ -13,8 +14,11 @@ class PenawaranInfolist
             ->components([
                 // TextEntry::make('pengepul_id')
                 //     ->numeric(),
-                TextEntry::make('judul'),
-                TextEntry::make('foto'),
+               
+                ImageEntry::make('foto')
+                    ->disk('public')
+                    ->height(200)
+                    ->columnSpanFull(),
                 TextEntry::make('jumlah_kebutuhan')
                     ->numeric(),
                 TextEntry::make('harga_perkiraan')

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PengajuanController;
+use App\Http\Controllers\PetaniController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +24,11 @@ Route::middleware(['auth', 'role:petani'])->group(function () {
     Route::resource('hasil', \App\Http\Controllers\HasilPertanianController::class);
 });
 
-
+Route::middleware(['auth', 'role:petani'])->group(function () {
+    Route::get('/penawaran', [PetaniController::class, 'index'])->name('petani.penawaran.index');
+    Route::get('/penawaran/{penawaran}', [PetaniController::class, 'show'])->name('petani.penawaran.show');
+    Route::post('/pengajuan', [PengajuanController::class, 'store'])->name('pengajuan.store');
+    Route::get('/pengajuan-saya', [PengajuanController::class, 'index'])->name('pengajuan.index');
+});
 
 require __DIR__.'/auth.php';

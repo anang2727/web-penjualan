@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->text('deskripsi');
+            $table->string('foto')->nullable();
             $table->integer('jumlah_kebutuhan');
             $table->decimal('harga_perkiraan', 15, 2);
             $table->date('tanggal_batas');

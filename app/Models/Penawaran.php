@@ -13,6 +13,7 @@ class Penawaran extends Model
     protected $fillable = [
         'judul',
         'deskripsi',
+        'foto',
         'jumlah_kebutuhan',
         'harga_perkiraan',
         'tanggal_batas',
