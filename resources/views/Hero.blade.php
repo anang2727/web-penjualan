@@ -12,7 +12,7 @@
 <body class="bg-light">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav class="navbar navbar-expand-lg bg-success">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">Pertanian Sejahtera</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

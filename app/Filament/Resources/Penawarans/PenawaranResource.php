@@ -35,6 +35,7 @@ class PenawaranResource extends Resource
         return 'Daftar Penawaran';
     }
 
+    
 
     public static function form(Schema $schema): Schema
     {
