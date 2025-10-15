@@ -19,6 +19,8 @@ class Pengajuan extends Model
         'deskripsi',
         'foto',
         'status',
+        'is_stok_generated', // <-- NEW
+        'stok_pengepul_id',  // <-- NEW
     ];
 
     protected $casts = [
@@ -33,5 +35,10 @@ class Pengajuan extends Model
     public function petani(): BelongsTo
     {
         return $this->belongsTo(User::class, 'petani_id');
+    }
+
+    public function stokPengepul()
+    {
+        return $this->belongsTo(stokPengepul::class);
     }
 }

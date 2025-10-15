@@ -7,23 +7,39 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 ">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
+        
+        <div class="min-h-screen flex justify-center items-center py-12 bg-gray-100">
+            <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex bg-white shadow-2xl rounded-xl overflow-hidden">
+                    
+                    {{-- KIRI: Bagian Foto --}}
+                    <div class="hidden lg:block w-1/2 bg-gray-200">
+                        {{-- Menggunakan URL online Anda --}}
+                        <img src="https://images.pexels.com/photos/29639325/pexels-photo-29639325.jpeg" 
+                            alt="Background Makanan Segar"
+                            class="w-full h-full object-cover">
+                    </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white  shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
+                    {{-- KANAN: Bagian Form --}}
+                    <div class="w-full lg:w-1/2 p-6 sm:p-10 flex flex-col justify-center">
+
+                        {{-- Bagian Logo DIHAPUS (sebelumnya ada div dengan x-application-logo) --}}
+                        {{-- <div class="mb-6 flex justify-center lg:justify-start">...</div> --}}
+                        
+                        {{-- SLOT FORM --}}
+                        <div class="w-full">
+                            {{ $slot }}
+                        </div>
+
+                    </div>
+                    
+                </div>
             </div>
         </div>
     </body>
