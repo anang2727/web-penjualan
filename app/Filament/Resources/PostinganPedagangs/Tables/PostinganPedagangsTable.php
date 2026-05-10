@@ -18,22 +18,23 @@ class PostinganPedagangsTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->defaultSort('created_at', 'desc')
             ->columns([
                 // --- DEFINISI KOLOM TELAH DIISI ---
                 TextColumn::make('judul_postingan')
                     ->label('Judul Iklan')
                     ->searchable()
                     ->sortable(),
-                
+
                 TextColumn::make('stokPengepul.nama_komoditas')
                     ->label('Komoditas Sumber')
                     ->sortable(),
-                    
+
                 TextColumn::make('kuantitas_dijual')
                     ->label('Jml. Dijual')
                     ->numeric()
-                    ->suffix(fn ($record) => ' ' . $record->satuan),
-                    
+                    ->suffix(fn($record) => ' ' . $record->satuan),
+
                 TextColumn::make('harga_jual_satuan')
                     ->label('Harga Jual')
                     ->money('IDR')
@@ -42,7 +43,7 @@ class PostinganPedagangsTable
                 TextColumn::make('lokasi_stok')
                     ->label('Lokasi')
                     ->searchable(),
-                    
+
                 BadgeColumn::make('status')
                     ->label('Status')
                     ->colors([
@@ -51,7 +52,7 @@ class PostinganPedagangsTable
                         'danger' => 'habis',
                         'secondary' => 'selesai',
                     ]),
-                    
+
                 TextColumn::make('created_at')
                     ->label('Tanggal Post')
                     ->date()
