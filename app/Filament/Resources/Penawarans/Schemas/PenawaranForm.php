@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Penawarans\Schemas;
 
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -30,9 +31,17 @@ class PenawaranForm
 
                 Textarea::make('deskripsi')
                     ->columnSpanFull(),
-                TextInput::make('jumlah_kebutuhan')
+                TextInput::make('jumlah_target')
+                    ->label('Total Kebutuhan (Kg)')
+                    ->numeric()
                     ->required()
-                    ->numeric(),
+                    ->reactive() // Supaya responsif saat diketik
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        // Otomatis mengisi kolom jumlah_kebutuhan dengan angka yang sama
+                        $set('jumlah_kebutuhan', $state);
+                    }),
+
+                Hidden::make('jumlah_kebutuhan'),
                 TextInput::make('harga_perkiraan')
                     ->numeric(),
                 DatePicker::make('tanggal_batas'),

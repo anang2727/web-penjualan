@@ -26,9 +26,16 @@ class PenawaransTable
                     ->square()
                     ->size(60)
                     ->disk('public'),
-                TextColumn::make('jumlah_kebutuhan')
-                    ->numeric()
-                    ->sortable(),
+                TextColumn::make('progres')
+                    ->label('Status Pemenuhan')
+                    ->getStateUsing(function ($record) {
+                        // Rumus: (Target - Sisa) / Target
+                        $terkumpul = $record->jumlah_target - $record->jumlah_kebutuhan;
+                        return number_format($terkumpul, 0, ',', '.') . ' / ' . number_format($record->jumlah_target, 0, ',', '.') . ' Kg';
+                    })
+                    ->badge()
+                    ->color('success')
+                    ->description(fn($record) => "Sisa: " . number_format($record->jumlah_kebutuhan, 0, ',', '.') . " Kg lagi"),
                 TextColumn::make('harga_perkiraan')
                     ->numeric()
                     ->sortable(),

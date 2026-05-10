@@ -36,7 +36,9 @@ class PenawaranInfolist
                                                 TextEntry::make('jumlah_kebutuhan')
                                                     ->label('Jumlah Kebutuhan')
                                                     ->numeric(),
-
+                                                TextEntry::make('jumlah_target')
+                                                    ->label('Jumlah Target')
+                                                    ->numeric(),
                                                 TextEntry::make('harga_perkiraan')
                                                     ->label('Harga Perkiraan')
                                                     ->numeric(),

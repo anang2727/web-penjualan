@@ -16,6 +16,7 @@ class Penawaran extends Model
         'foto',
         'jumlah_kebutuhan',
         'harga_perkiraan',
+        'jumlah_target',
         'tanggal_batas',
         'status',
     ];
